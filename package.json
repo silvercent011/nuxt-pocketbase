@@ -1,6 +1,6 @@
 {
   "name": "nuxt-pocketbase",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Unnoficial PocketBase module for Nuxt",
   "repository": "silvercent011/nuxt-pocketbase",
   "license": "MIT",

@@ -1,4 +1,10 @@
-import { addPlugin, createResolver, defineNuxtModule } from "@nuxt/kit";
+import {
+  addImportsDir,
+  addPlugin,
+  createResolver,
+  defineNuxtModule,
+  useLogger,
+} from "@nuxt/kit";
 import { defu } from "defu";
 
 export interface PBModuleOptions {
@@ -28,8 +34,12 @@ export default defineNuxtModule<PBModuleOptions>({
     );
     _nuxt.options.runtimeConfig.public.pb = moduleOptions;
 
+    useLogger().info(`PocketBase URL: ${_options.pb_url}`);
+
     const resolver = createResolver(import.meta.url);
 
     addPlugin(resolver.resolve("./runtime/plugin"));
+
+    addImportsDir(resolver.resolve("./runtime/composables/**"));
   },
 });
